@@ -1,21 +1,40 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack'
+import HomeScreen from './src/HomeScreen';
+import LoginScreen from './src/LoginScreen';
+import ActivityScreen from './src/ActivityScreen';
+import AddTodo from './src/AddTodo';
+import { NavigationContainer } from '@react-navigation/native';
+import {AppLoading} from 'expo';
+import ModalScreen from './components/modal'
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
+//   let {fontsLoaded, error} = useFonts({
+//     Raleway_200ExtraLight
+
+//  });
+
+//  if (!fontsLoaded){
+//      return <AppLoading/>;
+//  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+   <NavigationContainer>
+     <Stack.Navigator>
+       <Stack.Screen name="LoginScreen" component={LoginScreen} options={{headerShown:false}}/>
+       <Stack.Screen name="ActivityScreen" component={ActivityScreen} options={{headerShown:false}}/>
+       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown:false}}/>
+       <Stack.Screen name="AddTodo" component={AddTodo} options={{headerShown:false}}/>
+     </Stack.Navigator>
+   </NavigationContainer>
+
+    //  <ModalScreen/>
+
+    // 
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
