@@ -4,7 +4,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack'
 import HomeScreen from './src/HomeScreen';
 import LoginScreen from './src/LoginScreen';
-import ActivityScreen from './src/ActivityScreen';
 import AddTodo from './src/AddTodo';
 import { NavigationContainer } from '@react-navigation/native';
 import {AppLoading} from 'expo';
@@ -26,7 +25,6 @@ export default function App() {
    <NavigationContainer>
      <Stack.Navigator>
        <Stack.Screen name="LoginScreen" component={LoginScreen} options={{headerShown:false}}/>
-       <Stack.Screen name="ActivityScreen" component={ActivityScreen} options={{headerShown:false}}/>
        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown:false}}/>
        <Stack.Screen name="AddTodo" component={AddTodo} options={{headerShown:false}}/>
      </Stack.Navigator>
