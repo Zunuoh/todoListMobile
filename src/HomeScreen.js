@@ -6,9 +6,10 @@ import TodoItem from '../src/TodoItem';
 import AddTodo from '../src/AddTodo';
 
  const HomeScreen =({navigation, route})=>{
-     const {name} = route.params;
-     const {task} = route.params;
-     const {time} = route.params;
+    //  const {username} = route.params;
+    //  const username = navigation.getParam('username');
+    //  const {task} = route.params;
+    //  const {time} = route.params;
    
      const [todos, setTodos] = useState([
          {text: 'buy coffee', key:'1'},
@@ -33,18 +34,11 @@ import AddTodo from '../src/AddTodo';
         })
     }
      return(
-         <View style={{flex:1, backgroundColor:"#FFFFFF", padding:30}}>
+         <View style={{flex:1, backgroundColor:"#413E43", padding:30}}>
             <View style={{paddingTop:70, flexDirection:"row"}}>
                 <View style={{flex:8}}>
-                <Text style={{fontSize:30}}>Hello,</Text>
-                <Text style={{fontSize:30, fontWeight:"500"}}>{name}</Text>
-                </View>
-                <View style={{flex:2}}>
-                    <Feather style={{paddingLeft:30}}
-                    name="plus"
-                    color="black"
-                    size={34}
-                    onPress={()=>{navigation.navigate("AddTodo")}}/>
+                <Text style={{fontSize:30, color:"#ED616B"}}>Hello,</Text>
+                {/* <Text style={{fontSize:30, fontWeight:"500"}}>{username}</Text> */}
                 </View>
             </View>
 
@@ -61,24 +55,9 @@ import AddTodo from '../src/AddTodo';
             </View>
 
             <View style={{paddingTop:20}}>
-                <Text style={{fontSize:20, fontWeight:"500"}}>Tasks</Text>
+                <Text style={{fontSize:20, fontWeight:"500", color:"#ED616B"}}>Tasks</Text>
                 {/* <Text style={{fontSize:20, fontFamily:"Raleway_200ExtraLight"}}>Tasks</Text> */}
             </View>
-          
-            {/* <View style={{width:320, height:90, backgroundColor:"#F7F8FA", borderRadius:10, padding:20, marginTop:20, flexDirection:"row"}}>
-                <View style={{flex:7}}>
-                <Text style={{fontWeight:"700",fontSize:18}}>{task}</Text>
-                <View style={{marginTop:10, flexDirection:"row", alignItems:"center"}}>
-                    <Ionicons
-                    name="ios-alarm"
-                    size={20}
-                    color="black"
-                    />
-                    <Text style={{paddingLeft:10}}>{time}</Text>
-                </View>
-                </View>
-                <View style={{width:20, height:20, borderRadius:30, borderWidth:1, marginTop:15}}/>
-            </View> */}
 
             <View>
                 <View style={{padding:10}}>

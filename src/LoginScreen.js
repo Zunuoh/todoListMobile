@@ -1,55 +1,63 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import {FontAwesome, Ionicons, Feather} from 'react-native-vector-icons'
 
- const LoginScreen =(props)=>{
+ const LoginScreen =({navigation})=>{
+     const[username, setUsername] = useState("");
+     const[password, setPassword] = useState("");
+
+     const handleLogin = () =>{
+         if (username == "" || password == ""){
+             alert("Kindly fill all fields");
+         }
+         else{
+             alert("Success!")
+             navigation.navigate("HomeScreen");
+
+         }
+     };
      return(
-         <View style={{flex:1, padding:30, backgroundColor:"#FFFFFF"}}>
-             <Feather
-             name="arrow-right"
-             size={24}
-             color="black" style={{paddingLeft:280, paddingTop:10}} onPress={()=>{props.navigation.push('ActivityScreen')}}/>
-             <View style={{paddingTop:20, paddingLeft:15, justifyContent:"center", alignItems:"center"}}>
-                 <Image source={require('../assets/cartoon1.jpeg')} style={{width:390, height:390}}/>
-             </View>
-             <View style={{paddingTop:40, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                 <Text style={{fontSize:30}}>Organize your works</Text>
-             </View>
-             <View style={{alignItems:"center", justifyContent:"center"}}>
-                 <Text style={{paddingTop:15, fontSize:20}}>Let's organize your works with priority</Text>
-                 <Text style={{paddingTop:10, fontSize:20}}>and do everything without stress</Text>
-             </View>
-            
-            <View style={{justifyContent:"center", alignItems:"center", flexDirection:"row", marginTop:30}}>
-            <View style={{width:10, height:10, borderRadius:30, backgroundColor:"red"}}/>
-            <View style={{width:10, height:10, borderRadius:30, backgroundColor:"gray", marginLeft:10}}/>
+         <View style={{flex:1, padding:30, backgroundColor:"#413E43"}}>
+            <View style={{paddingTop:140, justifyContent:"center", alignItems:"center"}}>
+                <Text style={{fontSize:40, fontWeight:"600", color:"#ED616B"}}>Sign Up</Text>
             </View>
 
-            {/* <TouchableOpacity style={{width:310, height:60, backgroundColor:"#F7F8FA", alignItems:"center", justifyContent:"center", marginTop:20,borderRadius:10, flexDirection:"row"}}>
-              <FontAwesome
-              name="facebook-square"
-              style={30}
-              color="black" style={{marginRight:60}}/>
-               <Text style={{marginLeft:5, fontSize:15}}>Continue with Facebook</Text>
+            <View style={{paddingTop:50}}>
+                <Text style={{fontSize:25, color:"#ED616B"}}>E-Mail:</Text>
+            </View>
+            <View style={{borderWidth:1, height:50,borderColor:"#3A857F", marginTop:30, borderRadius:10, padding:10}}>
+                <TextInput
+                placeholder="Username"
+                onChange={(e)=>setUsername(e)}
+                value={username}
+                clearTextOnFocus={true}/>
+            </View>
+
+            <View style={{paddingTop:60}}>
+                <Text style={{fontSize:25, color:"#ED616B"}}>Password:</Text>
+            </View>
+            <View style={{borderWidth:1, height:50,borderColor:"#3A857F", marginTop:30, borderRadius:10, padding:10}}>
+                <TextInput
+                placeholder="Password"
+                onChange={(e)=>setPassword(e)}
+                value={password}
+                clearTextOnFocus={true}
+                />
+            </View>
+
+            <TouchableOpacity style={{width:320, height:50, backgroundColor:"#565258", marginTop:80, justifyContent:"center", alignItems:"center", borderRadius:10, shadowColor: "#ED616B",
+shadowOffset: {
+	width: 0,
+	height: 1,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+
+elevation: 5,}} onPress={()=>handleLogin()}>
+                <Text style={{fontSize:20, color:"#3A857F", fontWeight:"bold"}}>SIGN IN</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity style={{width:310, height:60, backgroundColor:"#F7F8FA", alignItems:"center", justifyContent:"center", marginTop:20,borderRadius:10, flexDirection:"row"}}>
-              <Ionicons
-              name="logo-google"
-              style={26}
-              color="black" style={{marginRight:60}}/>
-               <Text style={{marginLeft:20}}>Continue with Google</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={{width:310, height:60, backgroundColor:"#F7F8FA", alignItems:"center", justifyContent:"center", marginTop:20,borderRadius:10, flexDirection:"row"}}>
-              <FontAwesome
-              name="facebook-square"
-              style={30}
-              color="black" style={{marginRight:60}}/>
-               <Text style={{marginLeft:20}}>Continue with email</Text>
-            </TouchableOpacity> */}
-
+           
            
             
              
